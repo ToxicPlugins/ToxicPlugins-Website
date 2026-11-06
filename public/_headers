@@ -8,3 +8,10 @@
   Cache-Control: no-store
   X-Robots-Tag: noindex, nofollow, noarchive
   Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; font-src 'self' data:; img-src 'self' data:; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; object-src 'none'
+
+/account.html
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://*.supabase.co https://api.github.com; img-src 'self' data:; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; object-src 'none'
+/customer-config.js
+  Cache-Control: no-store

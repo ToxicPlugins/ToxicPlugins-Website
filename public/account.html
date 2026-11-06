@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#090d0b">
+<meta name="description" content="Sign in to your ToxicPlugins customer account and manage your Minecraft plugin library.">
+<title>My Library — ToxicPlugins</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="store.css"><link rel="stylesheet" href="customer-auth.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="customer-config.js" defer></script><script src="customer-auth.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="announcement"><span class="announcement-pulse"></span> BEYOND VANILLA. <span class="announcement-secondary">BUILT BY TOXIC.</span></div>
+<header class="header"><div class="container header-inner">
+  <a class="brand" href="index.html" aria-label="ToxicPlugins home"><span class="brand-symbol" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 2 37 11v18L20 38 3 29V11L20 2Z" stroke="currentColor" stroke-width="2.5"/><path d="M11 13h18M20 13v17M13 30h14" stroke="currentColor" stroke-width="3.5" stroke-linecap="square"/></svg></span><span class="brand-name">TOXIC<span>PLUGINS</span><span class="brand-period">.</span></span></a>
+  <nav class="nav" id="site-nav" aria-label="Main navigation"><a href="store.html">Store</a><a href="index.html#plugins">Plugins</a><a href="docs.html">Docs</a><a href="support.html">Support</a><a href="account.html" aria-current="page">My Library</a><a href="index.html#roadmap">Roadmap</a></nav>
+  <a class="header-cta" href="store.html">VISIT THE STORE <span aria-hidden="true">↗</span></a>
+  <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span><span></span></button>
+</div></header>
+<main id="main" class="customer-main">
+<div class="customer-shell">
+  <div class="customer-crumb"><a href="index.html">HOME</a> / <span>MY LIBRARY</span></div>
+  <div class="customer-heading"><div><span class="customer-eyebrow">TOXICPLUGINS / CUSTOMER ACCESS</span><h1>MY <span>LIBRARY.</span></h1></div><p>Your personal space for your Minecraft Paper plugins. Free releases, account access and a future premium library.</p></div>
+  <div id="customer-status" class="customer-status" hidden role="status" aria-live="polite"></div>
+  <section id="customer-loading" class="customer-view" aria-label="Loading account"><div class="customer-skeleton"></div></section>
+  <section id="customer-not-configured" class="customer-view customer-layout" hidden aria-label="Customer accounts pending activation"><div class="customer-panel"><span class="customer-eyebrow">NOT YET ACTIVATED</span><h2>ACCOUNTS ARE BEING PREPARED.</h2><p>The online customer system has not been connected yet. The store and free DiamondFarm download are still accessible without an account.</p><a href="toxicdiamondfarm.html" class="btn btn-primary">GET DIAMONDFARM ↗</a></div><aside class="customer-panel"><span class="customer-eyebrow">OWNER CHECKLIST</span><p>The site owner must first connect the Supabase project, execute the database security migration and enable email confirmation.</p></aside></section>
+  <section id="customer-auth" class="customer-view customer-layout" hidden aria-label="Customer sign in or registration">
+   <div class="customer-panel">
+     <span class="customer-eyebrow">YOUR ACCOUNT / SECURE LOGIN</span><h2>WELCOME TO THE COLLECTION.</h2>
+     <div class="customer-tabs" role="tablist" aria-label="Account actions"><button type="button" data-mode="login" role="tab" aria-selected="true">SIGN IN</button><button type="button" data-mode="register" role="tab" aria-selected="false">REGISTER</button><button type="button" data-mode="reset" role="tab" aria-selected="false">RESET PASSWORD</button></div>
+     <form id="customer-form" class="customer-form" autocomplete="on">
+      <label>Email address<input type="email" id="customer-email" name="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></label>
+      <label id="customer-password-wrap">Password<input type="password" id="customer-password" name="password" autocomplete="current-password" required minlength="10" maxlength="200" placeholder="At least 10 characters"></label>
+      <button id="customer-submit" type="submit" class="btn btn-primary">SIGN IN ↗</button>
+     </form>
+     <div class="customer-inline-actions"><button class="customer-link" id="customer-resend" type="button">Resend confirmation email</button></div>
+     <p class="customer-muted">Customer login is separate from the private Owner Panel. We never ask for your GitHub credentials here.</p>
+   </div>
+   <aside class="customer-panel"><span class="customer-eyebrow">WHY CREATE AN ACCOUNT?</span>
+      <div class="customer-info-row"><span class="n">01 /</span><div><strong>YOUR COLLECTION</strong><span>Keep track of your free and future purchased plugins.</span></div></div>
+      <div class="customer-info-row"><span class="n">02 /</span><div><strong>SECURE EMAIL LOGIN</strong><span>Email confirmation, password reset and account-specific access.</span></div></div>
+      <div class="customer-info-row"><span class="n">03 /</span><div><strong>NO PAYMENTS YET</strong><span>Premium checkout is not active. Registering an account does not start any purchase.</span></div></div>
+   </aside>
+  </section>
+  <section id="customer-logged-in" class="customer-view customer-layout" hidden aria-label="Customer library">
+   <div class="customer-panel">
+     <div class="customer-user-row"><div><small>SIGNED IN AS</small><strong id="customer-current-email"></strong></div><button id="customer-signout" class="btn btn-ghost" type="button">SIGN OUT</button></div>
+     <span class="customer-eyebrow" style="margin-top:29px">OWNED / CLAIMED PLUGINS</span>
+     <h2>YOUR COLLECTION.</h2>
+     <div class="customer-item"><div class="customer-item-top"><h3>ToxicDiamondFarm</h3><span class="customer-tier">FREE / €0</span></div><p>A craftable four-level diamond generator for Minecraft Paper. Public release v2.0.0.</p>
+       <div id="customer-diamond-claim-row" class="customer-item-actions"><button id="customer-claim-diamond" class="btn btn-primary customer-action" type="button">ADD FREE TO LIBRARY ↗</button><a class="btn btn-ghost" href="toxicdiamondfarm.html">VIEW PLUGIN</a></div>
+       <div id="customer-diamond-owned-row" class="customer-item-actions" hidden><a class="btn btn-primary" href="https://github.com/ToxicPlugins/ToxicDiamondFarm/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer">OPEN OFFICIAL DOWNLOAD ↗</a><a href="toxicdiamondfarm.html" class="btn btn-ghost">DETAILS</a></div>
+       <p id="customer-diamond-owned-note" class="customer-muted" hidden>✓ Saved to your library. The free JAR is distributed via the official GitHub release.</p>
+     </div>
+     <div class="customer-item"><div class="customer-item-top"><h3>ToxicSkullFactory</h3><span class="customer-tier premium">PREMIUM / €1.99</span></div><p>Protected Nether altar, Soul Trap and loot collection. Premium checkout is not available yet.</p><div class="customer-item-actions"><a class="btn btn-ghost" href="toxicskullfactory.html">VIEW PLUGIN ↗</a></div><p id="customer-skull-note" class="customer-muted">Not purchased. Premium payment and download are disabled.</p></div>
+     <p class="customer-note">Only your own account can view its saved plugins. A free claim is not a purchase. Premium access is never granted from the browser.</p>
+   </div>
+   <aside class="customer-panel"><span class="customer-eyebrow">ACCOUNT MANAGEMENT</span><h2>SECURITY FIRST.</h2><p>Use a unique password and keep your email verified. Password reset is available through the sign-in page.</p>
+     <button type="button" class="customer-link" id="customer-change-password">CHANGE PASSWORD</button>
+     <p class="customer-muted">This is a new online account system. Old local Python test accounts do not automatically carry over.</p>
+   </aside>
+  </section>
+  <section id="customer-password-recovery" class="customer-view customer-layout" hidden aria-label="Choose a new password"><div class="customer-panel"><span class="customer-eyebrow">RECOVER ACCOUNT</span><h2>SET A NEW PASSWORD.</h2><form id="customer-new-password-form" class="customer-form"><label>New password<input id="customer-new-password" type="password" autocomplete="new-password" minlength="10" maxlength="200" required></label><button class="btn btn-primary" type="submit">UPDATE PASSWORD ↗</button></form></div></section>
+</div></main>
+<footer class="footer"><div class="container footer-bottom"><span>© TOXICPLUGINS — BEYOND VANILLA.</span><div class="footer-links"><a href="index.html">HOME</a><a href="store.html">STORE</a><a href="docs.html">DOCS</a><a href="support.html">SUPPORT</a><a href="privacy.html">PRIVACY</a></div></div></footer>
+
+</body></html>
