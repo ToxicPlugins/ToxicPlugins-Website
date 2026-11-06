@@ -1,13 +1,13 @@
 {
   "schema": 1,
-  "announcement": "FREE + PREMIUM PAPER PLUGINS. BUILT BY TOXIC.",
+  "announcement": "WELCOME TO TOXICPLUGINS!",
   "products": {
     "diamond": {
       "title": "ToxicDiamondFarm",
       "description": "A craftable diamond generator with four upgrade levels, automatic production and secure storage.",
       "visible": true,
       "tier": "free",
-      "price": 0.0
+      "price": 0
     },
     "skull": {
       "title": "ToxicSkullFactory",
