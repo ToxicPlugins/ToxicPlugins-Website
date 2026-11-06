@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "announcement": "FREE + PREMIUM PAPER PLUGINS. BUILT BY TOXIC.",
+  "products": {
+    "diamond": {
+      "title": "ToxicDiamondFarm",
+      "description": "A craftable diamond generator with four upgrade levels, automatic production and secure storage.",
+      "visible": true,
+      "tier": "free",
+      "price": 0.0
+    },
+    "skull": {
+      "title": "ToxicSkullFactory",
+      "description": "A Nether-inspired altar with Soul Trap, protected mob mechanics, and loot / XP collection.",
+      "visible": true,
+      "tier": "premium",
+      "price": 1.99
+    }
+  },
+  "extras": []
+}
